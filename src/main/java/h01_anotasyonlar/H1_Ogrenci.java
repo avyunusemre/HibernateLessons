@@ -1,0 +1,98 @@
+package h01_anotasyonlar;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+//import javax.persistence.Transient;
+
+//================================================================
+//HIBERNATE ICIN TABLO TANIMLAMASININ YAPILMASI 
+
+//POJO: Plain Old Java Object									
+//1) Private degiskenler tanimlanir.
+//2) constructor olusturulur.
+//3) Getter ve Setter metotlar tanimlanir.
+//4) toString() metodu ile nesne yazdirilabilir hale getirilir.
+//================================================================
+
+/*
+	Bir Class Hibernate ile tablo olusturmada kullanilacaksa degiskenlerin
+	"final" veya "static" tanimlanMAMAsi gerekir. 
+*/
+
+//- @Entity anotasyonu bu class'ın bir tabloya donusturulmesi
+//gerektigini Hibernate'e gosterir. Her bir degisken bir sutun olacaktir.
+
+//- @Table annotasyonu tablo adinin degistirlmesini saglar.
+
+//- @Id anotasyonu tablo icerisinde primary key olusturur.
+
+//- @Transient anotasyonu bir degiskenin (sutun) tabloda yer almayacagini gosterir.
+
+@Entity
+@Table(name="ogrenci_tablosu2")
+public class H1_Ogrenci {
+	
+	@Id
+	@Column(name="ogr_id")
+	private int ogrId;
+	
+	@Column(name="ogr_ad")
+	private String ogrAd;
+	
+	@Column(name="ogr_not")
+	private double ogrNot;
+	
+//	@Transient
+//	private String adres;
+	
+	public H1_Ogrenci() {
+		
+	}
+	
+	public H1_Ogrenci(int ogrId, String ogrAd, double ogrNot) {
+		this.ogrId = ogrId;
+		this.ogrAd = ogrAd;
+		this.ogrNot = ogrNot;
+	}
+
+
+	public int getOgrId() {
+		return ogrId;
+	}
+
+
+	public void setOgrId(int ogrId) {
+		this.ogrId = ogrId;
+	}
+
+
+	public String getOgrAd() {
+		return ogrAd;
+	}
+
+
+	public void setOgrAd(String ogrAd) {
+		this.ogrAd = ogrAd;
+	}
+
+
+	public double getOgrNot() {
+		return ogrNot;
+	}
+
+
+	public void setOgrNot(double ogrNot) {
+		this.ogrNot = ogrNot;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Ogrenci ogrId=" + ogrId + ", ogrAd=" + ogrAd + ", ogrNot=" + ogrNot ;
+	}
+	
+	
+
+}
