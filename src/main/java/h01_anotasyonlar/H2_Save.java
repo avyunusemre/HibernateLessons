@@ -8,9 +8,6 @@ import org.hibernate.cfg.Configuration;
 public class H2_Save {
 
 	public static void main(String[] args) {
-		// Tabloya eklenecek verilerin olusuturulmasi
-		H1_Ogrenci ogr1 = new H1_Ogrenci(101, "Canan Yilmaz", 90);
-		H1_Ogrenci ogr2 = new H1_Ogrenci(102, "Ilık Su Ozturk", 75);
 
 		// - Veritabanı baglanti ayarlarinin yapilmasi (hibernate.cfg.xml)
 		// ve tabloyu olusturacak class'in gosterilmesi
@@ -25,12 +22,16 @@ public class H2_Save {
 		// Belirtilen oturum icin islemlerin (yazma, okuma v.b) baslatilmasi
 		Transaction tx = session.beginTransaction();
 
+		// Tabloya eklenecek verilerin olusuturulmasi
+		H1_Ogrenci ogr1 = new H1_Ogrenci(103, "Ahmet Yilmaz", 90);
+		H1_Ogrenci ogr2 = new H1_Ogrenci(104, "Kaynar Su Ozturk", 75);
+
 		// Veritabanina verilerin kaydedilmesi
 		session.save(ogr1);
 		session.save(ogr2);
 
 		// Yukarida yapilan islemlerin veritabanina kalici olarak iletilmesi.
 		tx.commit();
-		session.close(); 
+		session.close();
 	}
 }
