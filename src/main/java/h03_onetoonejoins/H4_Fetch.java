@@ -56,6 +56,14 @@ public class H4_Fetch {
 		for(Object [] w: sonucListesi2) {
 			System.out.println(Arrays.toString(w));
 		}
+		
+		//İki tablodaki kayıtların herseyini sorgulayalım
+		
+		String hql3 = "FROM H1_Ogrenci o FULL JOIN H2_Gunluk g ON o.ogrId = g.ogrenci";
+		
+		List<Object[]> sonucListesi3 = session.createQuery(hql3).getResultList();
+		
+		sonucListesi3.stream().forEach((x) -> System.out.println(Arrays.toString(x)));
 
 		tx.commit();
 

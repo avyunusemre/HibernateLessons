@@ -33,7 +33,6 @@ public class H2_Gunluk {
 	public H2_Gunluk(int id, String isim) {
 		this.id = id;
 		this.yazilar = isim;
-		
 	}
 
 	public int getId() {
